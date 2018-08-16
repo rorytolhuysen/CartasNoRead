@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Cartas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/estilos.css" />
+
+</head>
+
+<body>
+    
+    <!--**** BARRA DE NAVEGACIÓN ****-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">Venta Cartas</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="../index.html">Inicio <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                        <a class="nav-link" href="/vistas/mazo1.html">Mazo 1 <span class="sr-only">(curren)</span></a>
+                </li>
+                
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+                </li>
+            
+              </ul>
+            
+               
+            </div>
+          </nav>
+    
+    
+    
+        <article>
+                
+            <div class="container bg-light frm">
+                <form action="conectar.php" method="post">
+                        <div class="form-group">
+                          <label for="carta_lb">Nombre de Carta</label>
+                          <input type="text" class="form-control" id="carta_lb" aria-describedby="emailHelp" placeholder="Ingrese nombre de carta">
+                        </div>
+                        <div class="form-group">
+                          <label for="mazo">Mazo</label>
+                          <input type="text" class="form-control" id="mazo" placeholder="Ingrese nombre mazo">
+                        </div>
+                        <div class="form-group">
+                            <label for="edicion">Edición</label>
+                            <input type="text" class="form-control" id="edicion" placeholder="Ingrese edición">
+                        </div>
+                        <div class="form-group">
+                            <label for="estado">Estado de Carta</label>
+                            <input type="text" class="form-control" id="estado" placeholder="Ingrese estado">
+                        </div>
+                        <div class="form-group">
+                            <label for="stock">Stock</label>
+                            <input type="text" class="form-control" id="stock" placeholder="Ingrese cantidad">
+                        </div>
+                        <div class="form-group">
+                            <label for="precio">Precio</label>
+                            <input type="text" class="form-control" id="precio" placeholder="Ingrese precio">
+                        </div>
+                        <button type="submit" class="btn btn-dark">Registrar carta</button>
+                        <button type="submit" class="btn btn-dark">Cancelar</button>
+                </form>
+            </div>    
+            
+
+        </article>
+        
+
+       
+
+    
+    </div> 
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</body>
+
+</html>
