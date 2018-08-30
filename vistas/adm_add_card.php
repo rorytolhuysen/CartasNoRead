@@ -27,7 +27,7 @@ if (@!$_SESSION['Usuario']) {
     <h2>Ingrese carta</h2>
                 
             <div class="container bg-light frm">
-                <form action="../controlador/new_card.php" method="post">
+                <form id="registration_form" action="../controlador/new_card.php" method="post">
                         
                         <div class="form-group">
                           <label for="SerialCarta">Serial de Carta</label>
@@ -36,7 +36,7 @@ if (@!$_SESSION['Usuario']) {
             
                         <div class="form-group">
                           <label for="NombreCarta">Nombre de Carta</label>
-                          <input type="text" class="form-control" id="NombreCarta" required="NombreCarta" name="NombreCarta" placeholder="Ingrese nombre de carta">
+                          <input type="text" class="form-control" id="form_username" required="NombreCarta" name="NombreCarta" placeholder="Ingrese nombre de carta"><td><span class="error_form" id="username_error_message"></span>
                         </div>
                         
                         <div class="form-group">
@@ -82,6 +82,7 @@ if (@!$_SESSION['Usuario']) {
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script type="text/javascript" src="http://localhost/cartas/js/app.js"></script>
 </body>
 
 
