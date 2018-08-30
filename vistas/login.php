@@ -25,13 +25,13 @@ session_start();
 
     <br>
 	<div class="text-center container col-sm-offset-4 col-sm-3">
-        <form class="form-signin" action="http://localhost/cartas/controlador/validar.php" method="post">
+        <form id="formulario" class="form-signin" action="http://localhost/cartas/controlador/validar.php" method="post">
         <img class="mb-4" src="http://localhost/cartas/img/cardlogin.png" alt="logo" width="100" height="72">
         <h1 class="h3 mb-3 font-weight-normal">Bienvenido</h1>
         <label for="inputEmail" class="sr-only">Usuario</label>
-        <input type="text" id="inputEmail" class="form-control" placeholder="Ingrese usuario" required="" autofocus="" name="Usuario">
+        <input type="text" id="inputEmail" class="form-control" autofocus placeholder="Ingrese usuario" name="Usuario">
         <label for="inputPassword" class="sr-only">Contraseña</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Ingrese contraseña" required="" name="Pass">
+        <input type="password" id="inputPassword" class="form-control" placeholder="Ingrese contraseña" name="Pass">
         <div >
             <br>
         </div>
@@ -52,7 +52,8 @@ session_start();
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
-
+<!--<script type='text/javascript' src='http://localhost/cartas/js/app.js'></script>
+-->
 </body>
 
 

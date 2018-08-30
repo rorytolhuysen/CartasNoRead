@@ -15,7 +15,7 @@ session_start();
 			echo "<script>location.href='http://localhost/cartas/vistas/login.php'</script>";
 		}
 	}else{
-	//	
+	
 		 echo '<script>alert("Usuario incorrecto, intentelo de nuevo")</script> ';
 		 echo "<script>location.href='http://localhost/cartas/vistas/login.php'</script>";
 	}
