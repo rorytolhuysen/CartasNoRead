@@ -1,3 +1,4 @@
+// ----------AGREGAR CLIENTE----------- //
 function agregarCliente(){
 
 	var url= '../controlador/new_card.php';
@@ -7,35 +8,69 @@ function agregarCliente(){
 		data: $('#registration_form').serialize(),
 		
 	
-		success:function(dato){
-		
-			var valor = dato;
-			
-			if (valor==1){
-				$('#registration_form')[0].reset();
-	
-				//$('#mensaje').addClass('mal').html('YA SE ENCUENTRE REGISTRADO!!!').show(200).delay(2500).hide(200);
-				$('#mensaje').addClass('mal').html('DATOS YA INGRESADOS!!!!').show(200).delay(2500).hide(200);
-	
-				//$('#mensaje').addClass('bien').html('SE GUARDO CORRECTAMENTE !!!').show(200).delay(2500).hide(200);
-			
-			return;
-			
-			}else{
-			
-				$('#registration_form')[0].reset();
-				$('#tabla-registro').html(dato);
-				$('#mostrar-cliente').modal({
-					show: true,
-					backdrop: 'static'
-				});
-				return;
-			}
-		return false;
-		}
-			
+
 	
 	})
+}
 	
+	
+
+//---------MODIFICAR CLIENTE-----------//
+
+$(function(){
+	$("#boton_mod").click(function(){
+		var url="../controlador/mod_card.php";
+		$.ajax({
+			type:"post",
+			url:url,
+			data:$("#form_mod").serialize(),
+			success:function(data){
+				//$("#resultado").html(data);
+				console.log("mati rico")
+				$('#form_mod')[0].reset();
+			}
+		});
+		return false;
+	});
+});
+
+
+//----------ELIMINAR CLIENTE-----------//
+
+function borrarClientes(){
+	
+	var dato= $('#SerialCarta').val();
+	var url='../controlador/del_card.php';
+
+	var pregunta = confirm('Esta seguro que desea ELIMINAR este Cliente');
+	if (pregunta==true){
+
+	$.ajax({
+
+		type:'POST',
+		url:url,
+		data:'id='+dato,
+		success: function(valor){
+
+			alert('SE ELIMINA CORRECTAMENTE.....');
+			$('#formBusqueda')[0].reset();
+			$('#formEliminar')[0].reset();
+			$("label[for='nombre']").text("");
+			
+			
+			return false;
+		}
+		
+	})
 	return false;
+
+
+
+	}else{
+		return false;
 	}
+
+
+
+
+	};

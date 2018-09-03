@@ -21,7 +21,8 @@ if (@!$_SESSION['Usuario']) {
 
 <body>
     <div class="container">
-    <!--**** BARRA DE NAVEGACIÓN ****--> 
+    <!--**** BARRA DE NAVEGACIÓN ****-->
+    <?php include('../controlador/conectar_db.php') ?>  
     <?php include('../modelo/navbar.php') ?>   
     <h2>Modificar Carta</h2>
             <?php
@@ -47,11 +48,11 @@ if (@!$_SESSION['Usuario']) {
                 }
             ?>   
             <div class="container bg-light frm">
-            <form action="../controlador/mod_card.php?SerialCarta=<?php echo $_GET['SerialCarta']?>" method="POST">
+            <form id="form_mod">
                         
                         <div class="form-group">
                           <label for="SerialCarta">Serial de Carta</label>
-                          <input type="text" class="form-control" id="SerialCarta" required="SerialCarta" name="SerialCarta" placeholder="Ingrese serial de carta" value="<?php echo $mostrar[0]?>" disabled>
+                          <input type="text" class="form-control" id="SerialCarta" required="SerialCarta" name="SerialCarta" placeholder="Ingrese serial de carta" value="<?php echo $mostrar[0]?>">
                         </div>
             
                         <div class="form-group">
@@ -84,8 +85,8 @@ if (@!$_SESSION['Usuario']) {
                             <input type="text" class="form-control" id="Precio" required="Precio" name="Precio" placeholder="Ingrese precio" value="<?php echo $mostrar[6]?>">
                         </div>
                         
-                        <button type="submit" class="btn btn-dark">Registrar carta</button>
-                        <button type="submit" class="btn btn-dark">Cancelar</button>
+                        <button id="boton_mod" type="submit" class="btn btn-dark">Registrar carta</button>
+                        <button type="cancel" class="btn btn-dark">Cancelar</button>
                 </form>
             </div> 
         </div>   
@@ -97,9 +98,13 @@ if (@!$_SESSION['Usuario']) {
     
     </div> 
     
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>    
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script type="text/javascript" src="http://localhost/cartas/js/app.js"></script> 
 </body>
 
 
