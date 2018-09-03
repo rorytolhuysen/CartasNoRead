@@ -53,7 +53,8 @@
 		$mysqli->query($consulta) or die (mysqli_error($conexion));
 	}
 ?>
-<script type="text/javascript">
+<!--<script type="text/javascript">
 	alert("Producto agregado exitosamente.");
 	window.location.href="../vistas/adm_view_card.php";
 </script>
+-->

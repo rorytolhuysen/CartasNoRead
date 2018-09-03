@@ -1,114 +1,41 @@
-$(function() {
+function agregarCliente(){
 
-	$("#username_error_message").hide();
-	$("#password_error_message").hide();
-	$("#retype_password_error_message").hide();
-	$("#email_error_message").hide();
-
-	var error_username = false;
-	var error_password = false;
-	var error_retype_password = false;
-	var error_email = false;
-
-	$("#form_username").focusout(function() {
-
-		check_username();
+	var url= '../controlador/new_card.php';
+	$.ajax({
+		type:'POST',
+		url:url,
+		data: $('#registration_form').serialize(),
 		
-	});
-
-	$("#form_password").focusout(function() {
-
-		check_password();
-		
-	});
-
-	$("#form_retype_password").focusout(function() {
-
-		check_retype_password();
-		
-	});
-
-	$("#form_email").focusout(function() {
-
-		check_email();
-		
-	});
-
-	function check_username() {
 	
-		var username_length = $("#form_username").val().length;
+		success:function(dato){
 		
-		if(username_length < 5 || username_length > 20) {
-			$("#username_error_message").html("Tiene que tener 5 a 20 caracteres");
-			$("#username_error_message").show();
-			error_username = true;
-		} else {
-			$("#username_error_message").hide();
+			var valor = dato;
+			
+			if (valor==1){
+				$('#registration_form')[0].reset();
+	
+				//$('#mensaje').addClass('mal').html('YA SE ENCUENTRE REGISTRADO!!!').show(200).delay(2500).hide(200);
+				$('#mensaje').addClass('mal').html('DATOS YA INGRESADOS!!!!').show(200).delay(2500).hide(200);
+	
+				//$('#mensaje').addClass('bien').html('SE GUARDO CORRECTAMENTE !!!').show(200).delay(2500).hide(200);
+			
+			return;
+			
+			}else{
+			
+				$('#registration_form')[0].reset();
+				$('#tabla-registro').html(dato);
+				$('#mostrar-cliente').modal({
+					show: true,
+					backdrop: 'static'
+				});
+				return;
+			}
+		return false;
 		}
+			
 	
+	})
+	
+	return false;
 	}
-
-	function check_password() {
-	
-		var password_length = $("#form_password").val().length;
-		
-		if(password_length < 8) {
-			$("#password_error_message").html("At least 8 characters");
-			$("#password_error_message").show();
-			error_password = true;
-		} else {
-			$("#password_error_message").hide();
-		}
-	
-	}
-
-	function check_retype_password() {
-	
-		var password = $("#form_password").val();
-		var retype_password = $("#form_retype_password").val();
-		
-		if(password !=  retype_password) {
-			$("#retype_password_error_message").html("Passwords don't match");
-			$("#retype_password_error_message").show();
-			error_retype_password = true;
-		} else {
-			$("#retype_password_error_message").hide();
-		}
-	
-	}
-
-	function check_email() {
-
-		var pattern = new RegExp(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
-	
-		if(pattern.test($("#form_email").val())) {
-			$("#email_error_message").hide();
-		} else {
-			$("#email_error_message").html("Invalid email address");
-			$("#email_error_message").show();
-			error_email = true;
-		}
-	
-	}
-
-	$("#registration_form").submit(function() {
-											
-		error_username = false;
-		error_password = false;
-		error_retype_password = false;
-		error_email = false;
-											
-		check_username();
-		check_password();
-		check_retype_password();
-		check_email();
-		
-		if(error_username == false && error_password == false && error_retype_password == false && error_email == false) {
-			return true;
-		} else {
-			return false;	
-		}
-
-	});
-
-});
