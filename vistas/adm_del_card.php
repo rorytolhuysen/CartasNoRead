@@ -20,57 +20,76 @@ if (@!$_SESSION['Usuario']) {
 </head>
 
 <body>
-    
-    <!--**** BARRA DE NAVEGACIÓN ****--> 
     <div class="container">
-    <?php include('../controlador/conectar_db.php') ?> 
+    <!--**** BARRA DE NAVEGACIÓN ****-->
+    <?php include('../controlador/conectar_db.php') ?>  
     <?php include('../modelo/navbar.php') ?>   
-    <h2>Ingrese carta</h2>
-                
+    <h2>Eliminar Carta</h2>
+            <?php
+
+                $mostrar=MostrarProducto($_GET['SerialCarta']);
+
+                function MostrarProducto($serialcarta){
+                    include "../controlador/conectar_db.php";
+                    $consulta="SELECT * FROM cards WHERE SerialCarta='".$serialcarta."'";
+                    $resultado=$mysqli->query($consulta) or die (mysqli_error());
+                    $resultadoproductos=$resultado->fetch_assoc();
+
+                    return [
+                    $resultadoproductos['SerialCarta'],
+                    $resultadoproductos['NombreCarta'],
+                    $resultadoproductos['Mazo'],
+                    $resultadoproductos['Edicion'],
+                    $resultadoproductos['EstadoCarta'],
+                    $resultadoproductos['Stock'],
+                    $resultadoproductos['Precio'],
+
+                    ];
+                }
+            ?>   
             <div class="container bg-light frm">
-                <form id="registration_form" onsubmit= 'return agregarCarta()' method="post">
+            <form id="form_del">
                         
                         <div class="form-group">
                           <label for="SerialCarta">Serial de Carta</label>
-                          <input type="text" class="form-control" id="SerialCarta" required="SerialCarta" name="SerialCarta" placeholder="Ingrese serial de carta">
+                          <input type="text" class="form-control" id="SerialCarta" required="SerialCarta" name="SerialCarta" placeholder="Ingrese serial de carta" value="<?php echo $mostrar[0]?>">
                         </div>
             
                         <div class="form-group">
                           <label for="NombreCarta">Nombre de Carta</label>
-                          <input type="text" class="form-control" id="form_username" required="NombreCarta" name="NombreCarta" placeholder="Ingrese nombre de carta"><td><span class="error_form" id="username_error_message"></span>
+                          <input type="text" class="form-control" id="NombreCarta" required="NombreCarta" name="NombreCarta" placeholder="Ingrese nombre de carta" value="<?php echo $mostrar[1]?>">
                         </div>
                         
                         <div class="form-group">
                           <label for="Mazo">Mazo</label>
-                          <input type="text" class="form-control" id="Mazo"  required="Mazo" name="Mazo" placeholder="Ingrese nombre mazo">
+                          <input type="text" class="form-control" id="Mazo"  required="Mazo" name="Mazo" placeholder="Ingrese nombre mazo" value="<?php echo $mostrar[2]?>">
                         </div>
                         
                         <div class="form-group">
                             <label for="Edicion">Edición</label>
-                            <input type="text" class="form-control" id="Edicion" required="Edicion" name="Edicion" placeholder="Ingrese edición">
+                            <input type="text" class="form-control" id="Edicion" required="Edicion" name="Edicion" placeholder="Ingrese edición" value="<?php echo $mostrar[3]?>">
                         </div>
                         
                         <div class="form-group">
                             <label for="EstadoCarta">Estado de Carta</label>
-                            <input type="text" class="form-control" id="EstadoCarta" required="EstadoCarta" name="EstadoCarta" placeholder="Ingrese estado">
+                            <input type="text" class="form-control" id="EstadoCarta" required="EstadoCarta" name="EstadoCarta" placeholder="Ingrese estado" value="<?php echo $mostrar[4]?>">
                         </div>
                         
                         <div class="form-group">
                             <label for="Stock">Stock</label>
-                            <input type="text" class="form-control" id="Stock" required="Stock" name="Stock" placeholder="Ingrese cantidad">
+                            <input type="text" class="form-control" id="Stock" required="Stock" name="Stock" placeholder="Ingrese cantidad" value="<?php echo $mostrar[5]?>">
                         </div>
                         
                         <div class="form-group">
                             <label for="Precio">Precio</label>
-                            <input type="text" class="form-control" id="Precio" required="Precio" name="Precio" placeholder="Ingrese precio">
+                            <input type="text" class="form-control" id="Precio" required="Precio" name="Precio" placeholder="Ingrese precio" value="<?php echo $mostrar[6]?>">
                         </div>
                         
-                        <button type="submit" class="btn btn-dark">Registrar carta</button>
-                        <button type="submit" class="btn btn-dark">Cancelar</button>
+                        <button id="boton_del" type="submit" class="btn btn-dark">Eliminar Carta</button>
+                        <button type="cancel" class="btn btn-dark">Cancelar</button>
                 </form>
-            </div>
-        </div>
-            
+            </div> 
+        </div>   
         
         
 
@@ -79,14 +98,13 @@ if (@!$_SESSION['Usuario']) {
     
     </div> 
     
-    
     <script
   src="https://code.jquery.com/jquery-3.3.1.js"
   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script type="text/javascript" src="http://localhost/cartas/js/app.js"></script>
+<script type="text/javascript" src="http://localhost/cartas/js/app.js"></script> 
 </body>
 
 

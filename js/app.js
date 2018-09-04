@@ -1,5 +1,5 @@
 // ----------AGREGAR CLIENTE----------- //
-function agregarCliente(){
+function agregarCarta(){
 
 	var url= '../controlador/new_card.php';
 	$.ajax({
@@ -15,7 +15,7 @@ function agregarCliente(){
 	
 	
 
-//---------MODIFICAR CLIENTE-----------//
+//---------MODIFICAR CARTA-----------//
 
 $(function(){
 	$("#boton_mod").click(function(){
@@ -26,7 +26,7 @@ $(function(){
 			data:$("#form_mod").serialize(),
 			success:function(data){
 				//$("#resultado").html(data);
-				console.log("mati rico")
+				
 				$('#form_mod')[0].reset();
 			}
 		});
@@ -35,42 +35,41 @@ $(function(){
 });
 
 
-//----------ELIMINAR CLIENTE-----------//
+//----------ELIMINAR CARTA-----------//
 
-function borrarClientes(){
+$(function(){
 	
-	var dato= $('#SerialCarta').val();
-	var url='../controlador/del_card.php';
+	$("#boton_del").click(function(){
+		var dato= $('#SerialCarta').val();
+		var url='../controlador/del_card.php';
 
-	var pregunta = confirm('Esta seguro que desea ELIMINAR este Cliente');
-	if (pregunta==true){
+		var pregunta = confirm('Esta seguro que desea ELIMINAR este Cliente');
+		if (pregunta==true){
 
-	$.ajax({
+		$.ajax({
 
-		type:'POST',
-		url:url,
-		data:'id='+dato,
-		success: function(valor){
+			type:'POST',
+			url:url,
+			data:'SerialCarta='+dato,
+			success: function(valor){
 
-			alert('SE ELIMINA CORRECTAMENTE.....');
-			$('#formBusqueda')[0].reset();
-			$('#formEliminar')[0].reset();
-			$("label[for='nombre']").text("");
+				alert('SE ELIMINA CORRECTAMENTE.....');
+				
+				
+				return false;
+			}
 			
-			
-			return false;
-		}
-		
-	})
-	return false;
+		})
+		return false;
 
 
 
 	}else{
 		return false;
 	}
+})
 
 
 
 
-	};
+	});
