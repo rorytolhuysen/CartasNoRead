@@ -85,8 +85,9 @@ if (@!$_SESSION['Usuario']) {
 						<td><?php echo $row['Stock'];?></td>
             <td><?php echo $row['Precio'];?></td>
 						<td align="center"><a href="adm_mod_card.php?SerialCarta=<?php echo $row['SerialCarta']; ?>"><button type="button" class="btn btn-default btn-default">Modificar<span class="glyphicons glyphicons-pen"></span></button></a></td>
-						<td align="center"><a href="adm_del_card.php?SerialCarta=<?php echo $row['SerialCarta']; ?>"><button type="button" class="btn btn-default btn-default">Eliminar<span class="glyphicon glyphicon-remove"></span></button></a></td>
-					</tr>
+						<td align="center"><a><button id="boton_del" type="button" class="btn btn-default btn-default">Eliminar<span class="glyphicon glyphicon-remove"></span></button></a></td>
+            <input type="hidden" name="SerialCarta" id="SerialCarta" value='<?php echo $row['SerialCarta'];?>'>
+          </tr>
 
             <?php
               }
