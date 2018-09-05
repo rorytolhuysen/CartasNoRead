@@ -50,7 +50,6 @@ $(function(){
 	$("#boton_del").click(function(){
 		var dato= $('#SerialCarta').val();
 		var url='../controlador/del_card.php';
-		var reload='Location.reload()'
 		var pregunta = confirm('Esta seguro que desea ELIMINAR este Cliente');
 		if (pregunta==true){
 
